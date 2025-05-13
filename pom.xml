@@ -92,6 +92,25 @@
                 <artifactId>maven-war-plugin</artifactId>
                 <version>3.3.2</version>
             </plugin>
+            <plugin>
+                <groupId>com.sun.xml.ws</groupId>
+                <artifactId>jaxws-maven-plugin</artifactId>
+                <version>4.0.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>wsimport</goal>
+                        </goals>
+                        <configuration>
+                            <wsdlFiles>
+                                <wsdlFile>${basedir}/src/main/resources/wsdl/SoapMovieDataService.wsdl</wsdlFile>
+                            </wsdlFiles>
+                            <packageName>hu.pte.mik.generated.client</packageName>
+                            <sourceDestDir>${basedir}/target/generated/src/main/java</sourceDestDir>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
         </plugins>
     </build>
 </project>
